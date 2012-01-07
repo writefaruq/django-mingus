@@ -18,7 +18,7 @@ LOGIN_REDIRECT_URL = '/admin/'
 
 SITE_ID = 1
 ROOT_URLCONF = 'mingus.urls'
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Europe/London'
 USE_I18N = False
 HONEYPOT_FIELD_NAME = 'fonzie_kungfu'
 
@@ -36,9 +36,9 @@ MIDDLEWARE_CLASSES = (
     'sugar.middleware.debugging.UserBasedExceptionMiddleware',
     'request.middleware.RequestMiddleware',
     'djangodblog.DBLogMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+     'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -91,13 +91,13 @@ INSTALLED_APPS = (
   'quoteme',
   'mingus.core',
   'debug_toolbar',
-  
+
   'tinymce',
   'django_wysiwyg',
   'cropper',
   'memcache_status',
   'request',
-  
+
   'portfolio',
 )
 
