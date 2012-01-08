@@ -18,6 +18,8 @@ from django.template import RequestContext
 import re
 from django.db.models import Q
 
+from sendfile import sendfile
+
 def page_key_prefix(request):
     '''Used by cache_page_with_prefix to create a cache key prefix.'''
     return request.GET.get('page','')
@@ -262,3 +264,6 @@ def proxy_search(request, template_name='proxy/proxy_search.html'):
             message = 'Search term was too vague. Please try again.'
             context = {'message':message}
     return render_to_response(template_name, context, context_instance=RequestContext(request))
+
+def download_cv(request):
+     return sendfile(request, 'static/pdf/CV_SarkerMOF_2011.pdf', attachment=True)

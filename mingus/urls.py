@@ -8,7 +8,7 @@ from basic.blog.feeds import BlogPostsFeed, BlogPostsByCategory
 from basic.blog.sitemap import BlogSitemap
 from mingus.core.views import springsteen_results, springsteen_firehose, \
                             home_list, springsteen_category, contact_form, \
-                            proxy_search
+                            proxy_search, download_cv
 from robots.views import rules_list
 from mingus.core.feeds import AllEntries, ByTag
 
@@ -51,7 +51,7 @@ urlpatterns += patterns('',
     (r'^api/springsteen/posts/$', springsteen_results),
     (r'^api/springsteen/firehose/$', springsteen_firehose),
     (r'^api/springsteen/category/(?P<slug>[-\w]+)/$', springsteen_category),
-    
+
     url(r'^contact/$',
         contact_form,
         name='contact_form'),
@@ -76,7 +76,12 @@ urlpatterns += patterns('',
         view=proxy_search,
         name='proxy_search'),
 
+    url (r'^download_cv/$',
+        view=download_cv,
+        name='download_cv'),
+
     (r'', include('basic.blog.urls')),
+
 )
 
 from django.conf import settings

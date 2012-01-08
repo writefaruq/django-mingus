@@ -136,6 +136,8 @@ LOGGING = {
     }
 }
 
+SENDFILE_BACKEND = "sendfile.backends.simple"
+
 try:
    from local_settings import *
 except ImportError:
